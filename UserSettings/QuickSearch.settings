@@ -1,7 +1,7 @@
 trackSelection = false
 fetchPreview = true
 wantsMore = true
-dockable = false
+dockable = true
 debug = false
 itemIconSize = 1
 queryFolder = "Assets/Editor/Queries"
@@ -9,10 +9,16 @@ onBoardingDoNotAskAgain = true
 showPackageIndexes = false
 debounceMs = 250
 filters = {
+	asset = true
+	menu = true
+	object = true
+	scene = true
+	settings = true
 }
 scopes = {
 	"last_search.000006DE" = "add "
 	"last_search.AB59B290" = "main ca"
+	"last_search.AB59B443" = ""
 }
 providers = {
 	asset = {
@@ -53,6 +59,31 @@ providers = {
 	query = {
 		active = true
 		priority = 100
+		defaultAction = null
+	}
+	menu = {
+		active = true
+		priority = 80
+		defaultAction = null
+	}
+	settings = {
+		active = true
+		priority = 100
+		defaultAction = null
+	}
+	help = {
+		active = true
+		priority = -1
+		defaultAction = null
+	}
+	calculator = {
+		active = true
+		priority = 10
+		defaultAction = null
+	}
+	static_methods = {
+		active = true
+		priority = 85
 		defaultAction = null
 	}
 }
