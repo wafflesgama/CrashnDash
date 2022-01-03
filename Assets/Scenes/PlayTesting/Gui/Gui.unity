@@ -613,7 +613,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: a5478a3f452e8794bafce1785ccf3847, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a5478a3f452e8794bafce1785ccf3847, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1005,7 +1005,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c1a9f81adccca0545983c00972d52a16, type: 2}
+  - {fileID: 2100000, guid: bb38c78b25ba0a748901fdc0a667ec5d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1592,6 +1592,52 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73335a33e64913045bf498e9218d216c, type: 3}
+--- !u!114 &1549683363 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5282413695042129205, guid: 73335a33e64913045bf498e9218d216c, type: 3}
+  m_PrefabInstance: {fileID: 1549683362}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19c2e7019b935a041b9a80e5fa1b632a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1549683364 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5282413695875617912, guid: 73335a33e64913045bf498e9218d216c, type: 3}
+  m_PrefabInstance: {fileID: 1549683362}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c003e8e163531e4c9d302c931ab4241, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1549683365 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5282413695239325785, guid: 73335a33e64913045bf498e9218d216c, type: 3}
+  m_PrefabInstance: {fileID: 1549683362}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1549683366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1549683365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90b1dbb55db1795448929fdda05e247c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aimController: {fileID: 1549683364}
+  inputManager: {fileID: 1549683363}
+  castWidth: 0.5
+  castLength: 5
+  castMask:
+    serializedVersion: 2
+    m_Bits: 1
 --- !u!1 &1573359256
 GameObject:
   m_ObjectHideFlags: 0
@@ -1644,7 +1690,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c1a9f81adccca0545983c00972d52a16, type: 2}
+  - {fileID: 2100000, guid: bb38c78b25ba0a748901fdc0a667ec5d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -6,13 +6,16 @@ using static UEventHandler;
 
 public class PlayerInteractionHandler : MonoBehaviour
 {
-
     public static UEvent<Transform,Vector3> OnInteractableAppeared = new UEvent<Transform,Vector3>();
     public static UEvent OnInteractableDisappeared = new UEvent();
     public static UEvent<Vector3> OnSplash = new UEvent<Vector3>();
     static GameObject objectToInteract = null;
 
+    public PlayerAimController aimController;
     public PlayerInputManager inputManager;
+    public float castWidth=.5f;
+    public float castLength=5;
+    public LayerMask castMask;
 
 
     UEventHandler eventHandler = new UEventHandler();
@@ -27,6 +30,32 @@ public class PlayerInteractionHandler : MonoBehaviour
         eventHandler.UnsubcribeAll();
     }
     public static bool IsInteractableNearby() => objectToInteract != null;
+
+
+    private void Update()
+    {
+      
+    }
+
+    private void FixedUpdate()
+    {
+       var hasHit= Physics.SphereCast(Camera.main.transform.position, castWidth, aimController.aimTarget.forward, out RaycastHit hit, castLength, castMask);
+
+        if (!hasHit) return;
+
+
+        if (hit.transform.parent == null) return;
+
+        if (hit.transform.parent.tag == "Interactable")
+        {
+            if (objectToInteract == null || objectToInteract.transform.position != hit.transform.position)
+            {
+                objectToInteract = hit.transform.gameObject;
+                if (objectToInteract.transform.parent.TryGetComponent<Interactable>(out Interactable interactable))
+                    OnInteractableAppeared.TryInvoke(hit.transform, interactable.GetOffset());
+            }
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {
