@@ -1,3 +1,4 @@
+using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,8 +14,13 @@ public class PlayerAimController : MonoBehaviour
     public Transform aimTarget;
     public Transform playerSource;
 
+    //[MinMaxSlider(-120, 120)]
+    public Vector2 xRotationLimits = new Vector2(-90, 90);
+    [Range(-5, 5)]
     public float xSensitivity = 1;
+    [Range(-5, 5)]
     public float ySensitivity = 1;
+
     public float dampTime;
 
     public int test = 0;
@@ -56,6 +62,19 @@ public class PlayerAimController : MonoBehaviour
                                                aimTarget.eulerAngles.y + (playerInputManager.input_look.value.x * xSensitivity * .08f),
                                                aimTarget.eulerAngles.z);
 
+
+        Debug.Log("clippedXRotation before: " + newRotation.eulerAngles.x);
+        var clippedXRotation = newRotation.eulerAngles.x;
+
+        //Two Limit Clamp
+        //if (clippedXRotation >   )
+
+            //clippedXRotation = Mathf.Clamp(clippedXRotation, xRotationLimits.x, xRotationLimits.y);
+            //var clippedXRotation = newRotation.eulerAngles.x <  xRotationLimits.y ?  xRotationLimits.y : newRotation.eulerAngles.x;
+            //clippedXRotation = newRotation.eulerAngles.x >  xRotationLimits.x ?  xRotationLimits.x : newRotation.eulerAngles.x;
+
+            //Debug.Log("newrotation: "+ newRotation.eulerAngles);
+            newRotation.eulerAngles = new Vector3(clippedXRotation, newRotation.eulerAngles.y, newRotation.eulerAngles.z);
         if (test == 1)
         {
 
@@ -67,16 +86,10 @@ public class PlayerAimController : MonoBehaviour
                 aimTarget.rotation = Quaternion.Slerp(aimTarget.rotation, newRotation, t);
             }
         }
-            else if (test == 2)
-            {
+        else
+        {
 
-                aimTarget.rotation = Quaternion.Euler(Vector3.SmoothDamp(aimTarget.rotation.eulerAngles, newRotation.eulerAngles, ref dampVelocity3, dampTime * Time.deltaTime));
-
-            }
-            else
-            {
-
-                aimTarget.rotation = newRotation;
-            }
+            aimTarget.rotation = newRotation;
+        }
     }
 }

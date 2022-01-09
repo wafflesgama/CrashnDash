@@ -35,6 +35,7 @@ public class PlayerGrabHandler : MonoBehaviour
     private Vector3 damptest;
 
 
+    private int objectInitLayer;
     private Vector3 objectVelocity;
 
 
@@ -55,12 +56,17 @@ public class PlayerGrabHandler : MonoBehaviour
         objectToGrab = obj;
         if (objectToGrab.TryGetComponent<Rigidbody>(out objectBody))
             objectBody.isKinematic = true;
+
+        objectInitLayer = objectToGrab.gameObject.layer;
+        objectToGrab.gameObject.layer = 7;  //Set to grabbing layer
     }
     private void ReleaseObject()
     {
         if (objectToGrab == null) return;
 
         Grabbable.OnReleased.TryInvoke();
+
+        objectToGrab.gameObject.layer = objectInitLayer;
 
         if (objectBody != null)
         {

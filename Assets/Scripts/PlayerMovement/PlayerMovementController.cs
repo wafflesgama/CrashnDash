@@ -134,10 +134,17 @@ public class PlayerMovementController : MonoBehaviour
         RaycastHit hit;
         var hasHit = Physics.Raycast(transform.position, Vector3.down, out hit, castMaxDistance, layerMask);
         //Debug.DrawRay(transform.position, Vector3.down, Color.red);
-        if (!hasHit) return;
-        Debug.DrawRay(hit.point, hit.normal, Color.blue);
-        groundDistance = hit.distance;
-        groundNormal = hit.normal;
+        if (!hasHit)
+        {
+            Debug.DrawRay(hit.point, hit.normal, Color.blue);
+            groundDistance = hit.distance;
+            groundNormal = hit.normal;
+        }
+        else
+        {
+            groundDistance = float.MaxValue;
+            groundNormal = Vector3.up;
+        }
     }
 
     void CalculateDirection()
