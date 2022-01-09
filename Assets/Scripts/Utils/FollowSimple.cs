@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class FollowSimple : MonoBehaviour
 {
-    // Start is called before the first frame update
     public Transform followTarget;
     public float followFactor = 1;
     public bool offsetEnabled = true;
     public bool followLerp=true;
+    public bool followRotation;
 
     Vector3 offset;
     void Start()
@@ -22,5 +22,8 @@ public class FollowSimple : MonoBehaviour
         transform.position = Vector3.Lerp(transform.position, followTarget.position + offset, Time.deltaTime * followFactor);
         else
          transform.position = followTarget.position + offset;
+
+        if(followRotation)
+        transform.rotation=followTarget.rotation;
     }
 }

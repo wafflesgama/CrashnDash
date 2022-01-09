@@ -28,4 +28,9 @@ public class GenericNPC : MonoBehaviour,Interactable
         await Task.Delay(1000);
         gameObject.tag = "Interactable";
     }
+
+    public List<Renderer> GetInteractableMeshes()
+    {
+        throw new System.NotImplementedException();
+    }
 }

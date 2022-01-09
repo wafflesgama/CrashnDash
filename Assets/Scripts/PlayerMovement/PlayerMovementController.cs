@@ -124,6 +124,7 @@ public class PlayerMovementController : MonoBehaviour
         JumpForce(ref playerSpeed);
 
         characterController.Move(playerSpeed * Time.deltaTime);
+        //Debug.Log($"playerSpeed {playerSpeed}");
     }
 
     void GetGroundNormal()

@@ -17,6 +17,7 @@ public class UEventHandler
         public void TryInvoke() => eventData?.Invoke();
         public void Subscribe(UEventHandler source, Action action)
         {
+            CheckInstatiated(ref source);
             eventData += action;
 
             UnsubscribeAction unsubAction = null;
@@ -38,6 +39,7 @@ public class UEventHandler
         public void TryInvoke(T arg1) => eventData?.Invoke(arg1);
         public void Subscribe(UEventHandler source, Action<T> action)
         {
+            CheckInstatiated(ref source);
             eventData += action;
 
             UnsubscribeAction unsubAction = null;
@@ -57,6 +59,7 @@ public class UEventHandler
         public void TryInvoke(T1 arg1, T2 arg2) => eventData?.Invoke(arg1, arg2);
         public void Subscribe(UEventHandler source, Action<T1, T2> action)
         {
+            CheckInstatiated(ref source);
             eventData += action;
 
             UnsubscribeAction unsubAction = null;
@@ -77,6 +80,7 @@ public class UEventHandler
         public void TryInvoke(T1 arg1, T2 arg2, T3 arg3) => eventData?.Invoke(arg1, arg2, arg3);
         public void Subscribe(UEventHandler source, Action<T1, T2, T3> action)
         {
+            CheckInstatiated(ref source);
             eventData += action;
 
             UnsubscribeAction unsubAction = null;
@@ -88,6 +92,13 @@ public class UEventHandler
             source.OnSubscribe += unsubAction;
         }
         public void Unsubscribe(Action<T1, T2, T3> action) => eventData -= action;
+    }
+
+    private static void CheckInstatiated(ref UEventHandler uEventHandler)
+    {
+        if (uEventHandler != null) return;
+        Debug.LogError($"This uEventHandler ({uEventHandler}) is not instantiated\nConsider instatiating it with: eventHandler= new UEventHandler();\nWill instantiate for debug purposes");
+        uEventHandler=new UEventHandler();
     }
 
     #endregion UEvent

@@ -61,8 +61,6 @@ public class PlayerUIManager : MonoBehaviour
         OnFadeScreen.TryInvoke(true);
 
 
-        PlayerInteractionHandler.OnInteractableAppeared.Subscribe(eventHandler, ShowInteractable);
-        PlayerInteractionHandler.OnInteractableDisappeared.Subscribe(eventHandler, HideInteractable);
 
         OnStartedDialogue.Subscribe(eventHandler, RegisterDialogue);
         inputManager.input_attack.Onpressed.Subscribe(eventHandler, TryNextMessage);

@@ -15,6 +15,12 @@ public class PlayerAimController : MonoBehaviour
 
     public float xSensitivity = 1;
     public float ySensitivity = 1;
+    public float dampTime;
+
+    public int test = 0;
+
+    private float dampVelocity;
+    private Vector3 dampVelocity3;
 
     UEventHandler eventHandler = new UEventHandler();
     bool isAimFrozen;
@@ -50,6 +56,27 @@ public class PlayerAimController : MonoBehaviour
                                                aimTarget.eulerAngles.y + (playerInputManager.input_look.value.x * xSensitivity * .08f),
                                                aimTarget.eulerAngles.z);
 
-        aimTarget.rotation = newRotation;
+        if (test == 1)
+        {
+
+            float delta = Quaternion.Angle(transform.rotation, newRotation);
+            if (delta > 0f)
+            {
+                float t = Mathf.SmoothDampAngle(delta, 0.0f, ref dampVelocity, dampTime * Time.deltaTime);
+                t = 1.0f - (t / delta);
+                aimTarget.rotation = Quaternion.Slerp(aimTarget.rotation, newRotation, t);
+            }
+        }
+            else if (test == 2)
+            {
+
+                aimTarget.rotation = Quaternion.Euler(Vector3.SmoothDamp(aimTarget.rotation.eulerAngles, newRotation.eulerAngles, ref dampVelocity3, dampTime * Time.deltaTime));
+
+            }
+            else
+            {
+
+                aimTarget.rotation = newRotation;
+            }
     }
 }

@@ -4,6 +4,6 @@ using UnityEngine;
 
 public interface Interactable
 {
-    public Vector3 GetOffset();
-    public  void  Interact();
+    public List<Renderer> GetInteractableMeshes();
+    public void Interact();
 }
