@@ -16,7 +16,7 @@ public class FollowSimple : MonoBehaviour
         offset = offsetEnabled ? transform.position - followTarget.transform.position : Vector3.zero;
     }
 
-    private void LateUpdate()
+    private void Update()
     {
         if(followLerp)
         transform.position = Vector3.Lerp(transform.position, followTarget.position + offset, Time.deltaTime * followFactor);

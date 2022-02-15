@@ -1,36 +1,76 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+using Sirenix.OdinInspector;
+using System;
 using UnityEngine;
+using UnityEngine.AI;
+using Utils;
 
-public class GenericNPC : MonoBehaviour,Interactable
+namespace NPC
 {
-    public Vector3 offset;
-    [Multiline] public string[] dialogue;
-
-    UEventHandler eventHandler = new UEventHandler();
-    void Start()
+    public class GenericNPC : MonoBehaviour
     {
-        PlayerUIManager.OnFinishedDialogue.Subscribe(eventHandler, FinishedDialogue);
-    }
+        public Animator animator;
+        public Transform target;
 
-    public Vector3 GetOffset() => offset;
+        [Header("Logic")]
 
-    public void Interact()
-    {
-        PlayerUIManager.OnStartedDialogue.TryInvoke(transform, dialogue);
-        gameObject.tag = "Untagged";
-    }
+        //public LogicTrigger moveTrigger;
+        public LogicMachine logicMachine;
+        public LogicParam a;
+        
+
+        [Multiline] public string[] dialogue;
+        NavMeshAgent agent;
+       
+
+        private UEventHandler eventHandler = new UEventHandler();
+
+        private void Awake()
+        {
+            agent = GetComponent<NavMeshAgent>();
+        }
+            
+
+        void Start()
+        {
+            logicMachine.OnChangedState.Subscribe(eventHandler, StateChanged);
+
+        }
+
+        private void OnDestroy()
+        {
+            eventHandler.UnsubcribeAll();
+        }
+
+        private void StateChanged(string newState)
+        {
+
+        }
+
+        private void FixedUpdate()
+        {
 
 
-    private async void FinishedDialogue()
-    {
-        await Task.Delay(1000);
-        gameObject.tag = "Interactable";
-    }
 
-    public List<Renderer> GetInteractableMeshes()
-    {
-        throw new System.NotImplementedException();
+        }
+
+
+        [Button("Go to Target")]
+        public void FollowTarget()
+        {
+            GotoPoint(target.position);
+        }
+
+
+        public void GotoPoint(Vector3 destination)
+        {
+            agent.destination = destination;
+        }
+
+
+        private void OnCollisionEnter(Collision collision)
+        {
+            Debug.LogWarning("Collision");
+        }
     }
 }
+
