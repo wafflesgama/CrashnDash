@@ -194,10 +194,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcData: {fileID: 3546306155343362623}
   qmSprite: {fileID: 120812421}
-  qmAnimTime: 1
-  qmInEase: 29
-  qmOutEase: 30
-  viewDetection: {fileID: 879922879}
+  qmAnimTime: 0.5
+  qmInEase: 6
+  qmOutEase: 5
 --- !u!1 &18586465314563823
 GameObject:
   m_ObjectHideFlags: 0
@@ -248,8 +247,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   animator: {fileID: 5848097714862704419}
+  agent: {fileID: 0}
   viewDetection: {fileID: 879922879}
-  susRate: 0.01
+  susIncreaseRate: 0.006
+  susDecreaseRate: 0.006
   susLevel: 0
   logicMachine: {fileID: 6817897450571329453}
   dialogue: []
@@ -573,6 +574,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa2a707e76a54954b98fb4252415f7de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPlayerInArea: 0
 --- !u!1001 &18586466173778610
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1123,7 +1125,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 901671668851132387}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 3.5
