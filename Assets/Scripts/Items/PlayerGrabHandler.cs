@@ -1,9 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using static UEventHandler;
 
 public class PlayerGrabHandler : MonoBehaviour
 {
+
+    public UEvent<GameObject> OnObjectGrabbed= new UEvent<GameObject>();
+    public UEvent OnObjectReleased= new UEvent();
 
     [SerializeField]
     private PlayerInputManager playerInputManager;
@@ -27,7 +32,7 @@ public class PlayerGrabHandler : MonoBehaviour
 
     private Vector3 comeSpeed;
 
-    private Transform objectToGrab;
+    public  Transform grabbingObject;
     private Rigidbody objectBody;
     private UEventHandler eventHandler = new UEventHandler();
 
@@ -53,20 +58,21 @@ public class PlayerGrabHandler : MonoBehaviour
 
     private void GrabObject(Transform obj)
     {
-        objectToGrab = obj;
-        if (objectToGrab.TryGetComponent<Rigidbody>(out objectBody))
+        OnObjectGrabbed.TryInvoke(obj.gameObject);
+        grabbingObject = obj;
+        if (grabbingObject.TryGetComponent<Rigidbody>(out objectBody))
             objectBody.isKinematic = true;
 
-        objectInitLayer = objectToGrab.gameObject.layer;
-        objectToGrab.gameObject.layer = 7;  //Set to grabbing layer
+        objectInitLayer = grabbingObject.gameObject.layer;
+        grabbingObject.gameObject.layer = 7;  //Set to grabbing layer
     }
     private void ReleaseObject()
     {
-        if (objectToGrab == null) return;
+        if (grabbingObject == null) return;
 
         Grabbable.OnReleased.TryInvoke();
 
-        objectToGrab.gameObject.layer = objectInitLayer;
+        grabbingObject.gameObject.layer = objectInitLayer;
 
         if (objectBody != null)
         {
@@ -75,13 +81,19 @@ public class PlayerGrabHandler : MonoBehaviour
         }
 
         objectBody = null;
-        objectToGrab = null;
+        grabbingObject = null;
     }
+
+    //public List<string> GetGrabbingObjectQualifiers()
+    //{
+    //   var qualifiers= grabbingObject.GetComponents<Qualifier>();
+    //    return qualifiers.Select(x=> nameof(x)).ToList();
+    //}
     private void Update()
     {
-        if (objectToGrab == null) return;
+        if (grabbingObject == null) return;
 
-        objectToGrab.forward = viewDir.forward;
+        grabbingObject.forward = viewDir.forward;
 
         //viewDirLerped = Vector3.LerpUnclamped(viewDirLerped, viewDir.forward.normalized, Time.deltaTime * followLerp);
         viewDirLerped = Vector3.SmoothDamp(viewDirLerped, viewDir.forward.normalized, ref damptest, followLerp);
@@ -90,10 +102,10 @@ public class PlayerGrabHandler : MonoBehaviour
         //var pos = viewDir.position + (viewDir.forward * distance);
         var pos = viewDir.position + (viewDirLerped * distance);
 
-        objectVelocity = (pos - objectToGrab.position) / Time.smoothDeltaTime;
+        objectVelocity = (pos - grabbingObject.position) / Time.smoothDeltaTime;
 
         //objectToGrab.position = Vector3.SmoothDamp(objectToGrab.position, pos, ref comeSpeed, comeTime);
-        objectToGrab.position = pos;
+        grabbingObject.position = pos;
 
         //objectToGrab.position = Vector3.Lerp(objectToGrab.position, pos, Time.smoothDeltaTime * followLerp2);
     }

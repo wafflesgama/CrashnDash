@@ -3,16 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using static SoundUtils;
 
 [RequireComponent(typeof(AudioSource))]
 public class PlayerSoundManager : MonoBehaviour
 {
-    [Serializable]
-    public struct Sound
-    {
-        [Range(0, 3)] public float volume;
-        public AudioClip clip;
-    }
+    
 
     public static PlayerSoundManager currentManager { get; private set; }
 
@@ -63,8 +59,10 @@ public class PlayerSoundManager : MonoBehaviour
     {
         PlayerMovementController.OnJumped.Subscribe(eventHandler, PlayJumpSound);
         PlayerMovementController.OnLanded.Subscribe(eventHandler, PlayLandSound);
-        PlayerInteractionHandler.OnInteractableAppeared.Subscribe(eventHandler, (x, y) => PlaySound(interactInSound));
-        PlayerInteractionHandler.OnInteractableDisappeared.Subscribe(eventHandler, () => PlaySound(interactOutSound));
+        //PlayerInteractionHandler.OnInteractableAppeared.Subscribe(eventHandler, (x, y) => PlaySound(interactInSound));
+        //PlayerInteractionHandler.OnInteractableDisappeared.Subscribe(eventHandler, () => PlaySound(interactOutSound));
+        PlayerInteractionHandler.OnInteractableAppeared.Subscribe(eventHandler, PlayInteractIn);
+        PlayerInteractionHandler.OnInteractableDisappeared.Subscribe(eventHandler, PlayInteractOut);
         PlayerUIManager.OnFadeScreen.Subscribe(eventHandler, PlayFadeSound);
         PlayerCutsceneManager.OnEndingStarted.Subscribe(eventHandler, () => FadeAllSources(fadeIn: false));
         PlayerInteractionHandler.OnSplash.Subscribe(eventHandler, (x) => PlaySound(splashSound));
@@ -79,8 +77,15 @@ public class PlayerSoundManager : MonoBehaviour
         eventHandler.UnsubcribeAll();
     }
 
+    public void PlayInteractIn(Interactable x, Transform y)
+    {
+        PlaySound(interactInSound);
+    }
 
-
+    public void PlayInteractOut()
+    {
+        PlaySound(interactOutSound);
+    }
     public void PlayFootStep()
     {
         PlaySound(PickRandomClip(grassFootstepSounds));

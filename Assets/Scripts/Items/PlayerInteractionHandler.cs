@@ -43,7 +43,7 @@ public class PlayerInteractionHandler : MonoBehaviour
         {
             objectToInteract = null;
             return;
-        };
+        }
 
         var hasHit = Physics.SphereCast(aimController.aimTarget.position, castWidth, aimController.aimTarget.forward, out RaycastHit hit, castLength, castMask);
 
@@ -57,14 +57,14 @@ public class PlayerInteractionHandler : MonoBehaviour
         };
         //if (hit.transform.parent == null) return;
 
-        if (hit.transform.tag == "Interactable")
+        if (hit.transform.tag == "Interactable" && hit.transform.TryGetComponent<Interactable>(out Interactable interactable))
         {
-            if (objectToInteract == null || objectToInteract.transform.position != hit.transform.position)
+            if (objectToInteract == null || objectToInteract.transform.GetInstanceID() != hit.transform.GetInstanceID())
             {
                 if (objectToInteract != null)                           //It was a dif object so must first make disappear the last one 
                     OnInteractableDisappeared.TryInvoke();
 
-                if (hit.transform.TryGetComponent<Interactable>(out Interactable interactable))
+                //if ()
                 {
                     objectToInteract = hit.transform.gameObject;
                     OnInteractableAppeared.TryInvoke(interactable, hit.transform);
