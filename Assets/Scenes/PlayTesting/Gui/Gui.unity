@@ -6129,5 +6129,13 @@ PrefabInstance:
       propertyPath: m_Data.m_SourceObjects.m_Item0.transform
       value: 
       objectReference: {fileID: 96288262}
+    - target: {fileID: 3546306155343362623, guid: ecd31f84a6e27054bb2d3bba36ab5392, type: 3}
+      propertyPath: susDecreaseRate
+      value: 0.006
+      objectReference: {fileID: 0}
+    - target: {fileID: 3546306155343362623, guid: ecd31f84a6e27054bb2d3bba36ab5392, type: 3}
+      propertyPath: susIncreaseRate
+      value: 0.006
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ecd31f84a6e27054bb2d3bba36ab5392, type: 3}

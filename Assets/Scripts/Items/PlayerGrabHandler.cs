@@ -7,8 +7,8 @@ using static UEventHandler;
 public class PlayerGrabHandler : MonoBehaviour
 {
 
-    public UEvent<GameObject> OnObjectGrabbed= new UEvent<GameObject>();
-    public UEvent OnObjectReleased= new UEvent();
+    public UEvent<GameObject> OnObjectGrabbed = new UEvent<GameObject>();
+    public UEvent OnObjectReleased = new UEvent();
 
     [SerializeField]
     private PlayerInputManager playerInputManager;
@@ -32,7 +32,7 @@ public class PlayerGrabHandler : MonoBehaviour
 
     private Vector3 comeSpeed;
 
-    public  Transform grabbingObject;
+    public Transform grabbingObject;
     private Rigidbody objectBody;
     private UEventHandler eventHandler = new UEventHandler();
 
@@ -71,7 +71,7 @@ public class PlayerGrabHandler : MonoBehaviour
         if (grabbingObject == null) return;
 
         Grabbable.OnReleased.TryInvoke();
-
+        OnObjectReleased.TryInvoke();
         grabbingObject.gameObject.layer = objectInitLayer;
 
         if (objectBody != null)
