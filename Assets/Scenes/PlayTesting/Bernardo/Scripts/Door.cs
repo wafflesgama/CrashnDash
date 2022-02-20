@@ -4,13 +4,20 @@ using UnityEngine;
 
 using Sirenix.OdinInspector;
 using DG.Tweening;
+using static SoundUtils;
+using System.Threading.Tasks;
 
 public class Door : MonoBehaviour
 {
     //public Animator doorLeft;
     //public Animator doorRight;
+    public Sound openSound;
+    public Sound closeSound;
+    public AudioSource audioSource;
     public float openDistance = 4;
 
+    public float autoCloseTime;
+    public int freezeTimeMs;
     public float openSpeed = 1;
     public float closeSpeed = 1;
 
@@ -23,7 +30,10 @@ public class Door : MonoBehaviour
     float rightInitPos;
     float leftInitPos;
 
-    bool open = false;
+    Coroutine autoCloseRoutine;
+
+    bool doorOpen = false;
+    bool canOperate= true;
     void Start()
     {
         rightInitPos = doorRight.localPosition.z;
@@ -32,19 +42,33 @@ public class Door : MonoBehaviour
         //doorRight.SetBool("isLeft", false);
     }
 
-    public void OpenClose()
+    public async void OpenClose()
     {
-        open = !open;
+        if (!canOperate) return;
 
-        if (open)
+        if (!doorOpen)
+        {
             OpenDoor();
+            autoCloseRoutine = StartCoroutine(WaitForClose());
+        }
         else
+        {
             CloseDoor();
+            if (autoCloseRoutine != null)
+                StopCoroutine(autoCloseRoutine);
+        }
+
+        canOperate=false;
+        await Task.Delay(freezeTimeMs);
+        canOperate = true;
+            
     }
 
     [Button("Open Door")]
     public void OpenDoor()
     {
+        doorOpen = true;
+        audioSource.PlaySound(openSound);
         doorLeft.DOLocalMoveZ(leftInitPos - openDistance, openSpeed).SetEase(openAnimEase);
         doorRight.DOLocalMoveZ(rightInitPos + openDistance, openSpeed).SetEase(openAnimEase);
         //doorLeft.SetTrigger("OpenDoor");
@@ -54,10 +78,19 @@ public class Door : MonoBehaviour
     [Button("Close Door")]
     public void CloseDoor()
     {
+        doorOpen = false;
+        audioSource?.PlaySound(closeSound);
         doorLeft.DOLocalMoveZ(leftInitPos, closeSpeed).SetEase(closeAnimEase);
         doorRight.DOLocalMoveZ(rightInitPos, closeSpeed).SetEase(closeAnimEase);
         //doorLeft.SetTrigger("CloseDoor");
         //doorRight.SetTrigger("CloseDoor");
+    }
+
+    IEnumerator WaitForClose()
+    {
+        yield return new WaitForSeconds(autoCloseTime);
+        CloseDoor();
+        autoCloseRoutine = null;
     }
 
 }
