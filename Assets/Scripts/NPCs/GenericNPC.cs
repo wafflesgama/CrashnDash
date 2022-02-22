@@ -130,7 +130,7 @@ namespace NPC
                 isObjSus = false;
 
             playerRef = player;
-            
+
             susPlayerObject = objectGrabbing == null ? null : objectGrabbing.gameObject;
             isPlayerinView = true;
         }

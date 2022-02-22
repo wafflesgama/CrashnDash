@@ -7,7 +7,7 @@ namespace NPC
 {
     public class NPCUIManager : MonoBehaviour
     {
-        public GenericNPC npcData;
+        public CrewmateNPC npcData;
 
         [Header("Suspicion")]
         //public Animator qmTransforms;

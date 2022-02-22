@@ -32,8 +32,9 @@ public class Door : MonoBehaviour
 
     Coroutine autoCloseRoutine;
 
-    bool doorOpen = false;
-    bool canOperate= true;
+    public bool isOpen { get; private set; }
+
+    private bool canOperate = true;
     void Start()
     {
         rightInitPos = doorRight.localPosition.z;
@@ -46,31 +47,24 @@ public class Door : MonoBehaviour
     {
         if (!canOperate) return;
 
-        if (!doorOpen)
-        {
+        if (!isOpen)
             OpenDoor();
-            autoCloseRoutine = StartCoroutine(WaitForClose());
-        }
         else
-        {
             CloseDoor();
-            if (autoCloseRoutine != null)
-                StopCoroutine(autoCloseRoutine);
-        }
 
-        canOperate=false;
+        canOperate = false;
         await Task.Delay(freezeTimeMs);
         canOperate = true;
-            
     }
 
     [Button("Open Door")]
     public void OpenDoor()
     {
-        doorOpen = true;
+        isOpen = true;
         audioSource.PlaySound(openSound);
         doorLeft.DOLocalMoveZ(leftInitPos - openDistance, openSpeed).SetEase(openAnimEase);
         doorRight.DOLocalMoveZ(rightInitPos + openDistance, openSpeed).SetEase(openAnimEase);
+        autoCloseRoutine = StartCoroutine(WaitForClose());
         //doorLeft.SetTrigger("OpenDoor");
         //doorRight.SetTrigger("OpenDoor");
     }
@@ -78,10 +72,13 @@ public class Door : MonoBehaviour
     [Button("Close Door")]
     public void CloseDoor()
     {
-        doorOpen = false;
+        isOpen = false;
         audioSource?.PlaySound(closeSound);
         doorLeft.DOLocalMoveZ(leftInitPos, closeSpeed).SetEase(closeAnimEase);
         doorRight.DOLocalMoveZ(rightInitPos, closeSpeed).SetEase(closeAnimEase);
+
+        if (autoCloseRoutine != null)
+            StopCoroutine(autoCloseRoutine);
         //doorLeft.SetTrigger("CloseDoor");
         //doorRight.SetTrigger("CloseDoor");
     }

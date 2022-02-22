@@ -8,7 +8,13 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/PlayTesting/Gui/Gui.unity
     guid: 9ce872d4e14eff84dbb4eedd797b7dc2
+  - enabled: 1
+    path: Assets/Scenes/Main Menu/MainMenu - Copy.unity
+    guid: 5844326908702ac498fea1c1fe15fb03
+  - enabled: 1
+    path: Assets/Scenes/Main Game/MainGame.unity
+    guid: d30b227fba9860d40b25b3ce9c6fa0ae
   m_configObjects: {}

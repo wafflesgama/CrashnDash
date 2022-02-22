@@ -36,7 +36,7 @@ public class MainMenuManager : MonoBehaviour
     {
         FadeScreen(true);
         await Task.Delay(600);
-        SceneManager.LoadScene("World1");
+        SceneManager.LoadScene("MainGame");
     }
     private void FadeScreen(bool fadeIn) => fade.DOFade(fadeIn ? 1 : 0, fadeSpeed).SetEase(Ease.InOutQuad);
 }

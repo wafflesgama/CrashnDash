@@ -15,7 +15,7 @@ public class InteractionDisplayer : MonoBehaviour
     private float outlineWidth = 2f;
 
     private List<Outline> objsOutlined = new List<Outline>();
-    private UEventHandler eventHandler= new UEventHandler();
+    private UEventHandler eventHandler = new UEventHandler();
     void Start()
     {
         PlayerInteractionHandler.OnInteractableAppeared.Subscribe(eventHandler, DisplayInteractable);
@@ -30,14 +30,16 @@ public class InteractionDisplayer : MonoBehaviour
     private void DisplayInteractable(Interactable interactable, Transform origin)
     {
         objsOutlined.Clear();
-        interactable.GetInteractableMeshes().ForEach(x =>
-        {
-            var outlineComp = x.gameObject.AddComponent<Outline>();
-            objsOutlined.Add(outlineComp);
-            outlineComp.OutlineColor = outlineColor;
-            outlineComp.OutlineWidth = outlineWidth;
-            outlineComp.OutlineMode = outlineMode;
-        });
+        var outlineMeshes = interactable.GetInteractableMeshes();
+        if (outlineMeshes != null)
+            outlineMeshes.ForEach(x =>
+            {
+                var outlineComp = x.gameObject.AddComponent<Outline>();
+                objsOutlined.Add(outlineComp);
+                outlineComp.OutlineColor = outlineColor;
+                outlineComp.OutlineWidth = outlineWidth;
+                outlineComp.OutlineMode = outlineMode;
+            });
 
     }
 
