@@ -42,7 +42,7 @@ namespace NPC
         public UEvent OnArrivedDestination = new UEvent();
 
         bool isMoving;
-
+        bool isFollowing;
 
         protected void Awake()
         {
@@ -78,6 +78,11 @@ namespace NPC
             //placholder.position = agent.transform.position + agent.transform.forward * agent.velocity.magnitude * extrapolationDistance;
             //placholder.position = agent.nextPosition;
 
+            if (isFollowing && isMoving && !agent.isStopped)
+            {
+                agent.destination = target.position;
+            }
+
             if (isMoving && (HasArrivedDestination() || agent.isStopped))
             {
                 OnArrivedDestination.TryInvoke();
@@ -91,6 +96,8 @@ namespace NPC
         [Button("Go to Target")]
         public void FollowTarget()
         {
+            isFollowing = true;
+
             StartWalking(target.position);
         }
 
@@ -100,10 +107,10 @@ namespace NPC
         public void StartWalking(Vector3 destination)
         {
             agent.destination = destination;
+
             agent.isStopped = false;
             walkDestination = destination;
             isMoving = true;
-
             animator.SetBool("Moving", true);
         }
 
