@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using TMPro;
 using System;
 using static UEventHandler;
+using Sirenix.OdinInspector;
 
 public class PlayerUIManager : MonoBehaviour
 {
@@ -41,6 +42,13 @@ public class PlayerUIManager : MonoBehaviour
     public UnityEngine.EventSystems.EventSystem eventSystem;
     public float pauseAnimDuration = .15f;
 
+    [Header("Mentor Dialgoue")]
+    public DialogueWriter mentorDialogueWriter;
+    public RectTransform mentorDialogueContainer;
+    public float mentorDialogueAnimDuration = .5f;
+    public Ease mentorDialogueInEase;
+    public Ease mentorDialogueOutEase;
+
 
     [Header("Credits")]
     public DialogueWriter creditsWriter;
@@ -50,7 +58,7 @@ public class PlayerUIManager : MonoBehaviour
 
     public UEventHandler eventHandler = new UEventHandler();
     int lockArrowShowing = -1;
-    bool isInDialogue;
+    bool isInCrewDialogue;
 
     bool trackInteractable;
     Transform interactableRef;
@@ -63,7 +71,7 @@ public class PlayerUIManager : MonoBehaviour
 
 
         OnStartedDialogue.Subscribe(eventHandler, RegisterDialogue);
-        inputManager.input_attack.Onpressed.Subscribe(eventHandler, TryNextMessage);
+        inputManager.input_attack.Onpressed.Subscribe(eventHandler, TryNextCrewMessage);
 
         LevelManager.OnExitScreen.Subscribe(eventHandler, () => FadeScreen(fadeIn: false));
         LevelManager.OnRestartLevel.Subscribe(eventHandler, () => FadeInOutScreen());
@@ -74,6 +82,8 @@ public class PlayerUIManager : MonoBehaviour
         PlayerCutsceneManager.OnEndingStarted.Subscribe(eventHandler, () => FadeScreen(fadeIn: false));
         PlayerCutsceneManager.OnEndingFadeIn.Subscribe(eventHandler, () => FadeScreen(fadeIn: true));
         PlayerCutsceneManager.OnCreditsStarted.Subscribe(eventHandler, ShowCredits);
+
+        DisplayMentorMessage();
 
     }
 
@@ -88,8 +98,8 @@ public class PlayerUIManager : MonoBehaviour
     void Update()
     {
 
-        if(trackInteractable)
-            interactableText.transform.position = interactableRef.position+interactableOffset;
+        if (trackInteractable)
+            interactableText.transform.position = interactableRef.position + interactableOffset;
 
     }
 
@@ -102,9 +112,9 @@ public class PlayerUIManager : MonoBehaviour
     }
 
 
-    private void ShowInteractable(Transform source,Vector3 offset)
+    private void ShowInteractable(Transform source, Vector3 offset)
     {
-        trackInteractable=true;
+        trackInteractable = true;
         interactableRef = source;
         interactableOffset = offset;
         interactableText.transform.DOScale(Vector3.one, showInteractAnimDuration).SetEase(showInteractEase);
@@ -115,7 +125,6 @@ public class PlayerUIManager : MonoBehaviour
         trackInteractable = false;
         interactableText.transform.DOScale(Vector3.zero, showInteractAnimDuration).SetEase(showInteractEase);
     }
-   
 
     private async void RegisterDialogue(Transform t, string[] dialogue)
     {
@@ -124,16 +133,36 @@ public class PlayerUIManager : MonoBehaviour
         dialogueWriter.RegisterMessages(dialogue);
         NextMessage();
         await Task.Delay(500);
-        isInDialogue = true;
+        isInCrewDialogue = true;
     }
 
-    private void TryNextMessage()
+
+
+    [Button("Playe Mentor Message")]
+    private async void DisplayMentorMessage()
     {
-        if (!isInDialogue) return;
+        await Task.Delay(2000);
+        var dialogue = new string[] { 
+            "You have to destroy this ship before it's too late for us",
+            "Your best option will be to try to destroy the engine",
+            "Look for records on how to do this and good luck buddy, you're on your own" };
+        mentorDialogueContainer.DOScale(1, dialogueAnimDuration).SetEase(dialogueInEase);
+        await Task.Delay((int)dialogueAnimDuration * 1000 / 2);
+        //isInCrewDialogue = true;
+        await mentorDialogueWriter.WriteAllMessages(dialogue, 2000);
+        mentorDialogueContainer.DOScale(0, dialogueAnimDuration).SetEase(dialogueOutEase);
+        //await Task.Delay(500);
+
+        //NextMessage();
+    }
+
+    private void TryNextCrewMessage()
+    {
+        if (!isInCrewDialogue) return;
 
         if (!NextMessage())
         {
-            isInDialogue = false;
+            isInCrewDialogue = false;
             dialogueContainer.DOScale(0, dialogueAnimDuration).SetEase(dialogueOutEase);
             OnFinishedDialogue.TryInvoke();
         }
@@ -161,7 +190,7 @@ public class PlayerUIManager : MonoBehaviour
 
 
 
-    private  void ShowEnding()
+    private void ShowEnding()
     {
         FadeInOutScreen(5000);
     }

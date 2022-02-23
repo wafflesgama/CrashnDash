@@ -715,8 +715,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2676857178813029240}
   m_LocalRotation: {x: 0.5000002, y: 0.49999982, z: 0.49999994, w: -0.5000001}
-  m_LocalPosition: {x: -6, y: -3.4, z: -16.9}
-  m_LocalScale: {x: 154.26155, y: 251.92885, z: 282.38016}
+  m_LocalPosition: {x: -4.5271, y: -3.3161, z: -12.838}
+  m_LocalScale: {x: 119.278885, y: 194.7977, z: 218.3434}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2676857178332413406}
@@ -739,6 +739,13 @@ MonoBehaviour:
   renderers:
   - {fileID: 2676857178332413405}
   - {fileID: 2676857177952522605}
+  audioSource: {fileID: 1437492476355555148}
+  pressSound:
+    volume: 0.32
+    clip: {fileID: 8300000, guid: 036da455fdc4bb04085dfdc0540885bc, type: 3}
+  rejectedSound:
+    volume: 0.81
+    clip: {fileID: 8300000, guid: cfc5515dcf26a07429df04d494a0812f, type: 3}
   door: {fileID: 6563950090132381855}
 --- !u!65 &2676857178813029246
 BoxCollider:
@@ -779,8 +786,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2676857179140790606}
   m_LocalRotation: {x: -0.50000006, y: 0.49999994, z: 0.49999994, w: 0.50000006}
-  m_LocalPosition: {x: 6.99, y: -3.38, z: 18.92}
-  m_LocalScale: {x: 154.26155, y: 251.92885, z: 282.38016}
+  m_LocalPosition: {x: 5.5171, y: -3.3006, z: 14.858}
+  m_LocalScale: {x: 119.278885, y: 194.7977, z: 218.3434}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2676857177388841616}
@@ -803,6 +810,13 @@ MonoBehaviour:
   renderers:
   - {fileID: 2676857177388841623}
   - {fileID: 2676857177314828438}
+  audioSource: {fileID: 1437492476355555148}
+  pressSound:
+    volume: 0.32
+    clip: {fileID: 8300000, guid: 036da455fdc4bb04085dfdc0540885bc, type: 3}
+  rejectedSound:
+    volume: 0.81
+    clip: {fileID: 8300000, guid: cfc5515dcf26a07429df04d494a0812f, type: 3}
   door: {fileID: 6563950090132381855}
 --- !u!65 &2676857179140790604
 BoxCollider:
@@ -1016,7 +1030,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   openSound:
-    volume: 1.5
+    volume: 1.42
     clip: {fileID: 8300000, guid: 5666b940bb5b3164499fbf75b33d5809, type: 3}
   closeSound:
     volume: 1.5
@@ -1031,6 +1045,7 @@ MonoBehaviour:
   closeAnimEase: 7
   doorLeft: {fileID: 6063743749393274874}
   doorRight: {fileID: 2676857178443762095}
+  isLocked: 0
 --- !u!82 &1437492476355555148
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1043,7 +1058,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.832
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1051,10 +1066,10 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 0.37
-  MinDistance: 1
-  MaxDistance: 500
+  MinDistance: 5.406933
+  MaxDistance: 46
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -1087,7 +1102,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.486
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -1117,7 +1132,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0.539
       inSlope: 0
       outSlope: 0
       tangentMode: 0

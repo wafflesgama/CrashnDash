@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.VFX;
 using static PlayerSoundManager;
@@ -7,6 +8,7 @@ using static SoundUtils;
 
 public class Obj_Engine : MonoBehaviour
 {
+    public GameObject alarm;
     public ObjectInserter objectInserter;
     public VisualEffect visualEffect;
     public Sound explosionSound;
@@ -52,11 +54,13 @@ public class Obj_Engine : MonoBehaviour
         Destroy(objTransform.gameObject);
     }
 
-    private void Explode()
+    private async void Explode()
     {
         Debug.Log("Boom!");
         visualEffect.SendEvent("OnExplosion");
         audioSource.PlaySound(explosionSound);
+        await Task.Delay(900);
+        alarm.SetActive(true);
     }
 
     private void TinyReact()

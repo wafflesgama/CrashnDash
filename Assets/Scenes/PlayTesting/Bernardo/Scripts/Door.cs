@@ -32,6 +32,7 @@ public class Door : MonoBehaviour
 
     Coroutine autoCloseRoutine;
 
+    public bool isLocked;
     public bool isOpen { get; private set; }
 
     private bool canOperate = true;
@@ -43,9 +44,10 @@ public class Door : MonoBehaviour
         //doorRight.SetBool("isLeft", false);
     }
 
-    public async void OpenClose()
+    public async Task<bool> OpenClose()
     {
-        if (!canOperate) return;
+        if (!canOperate) return false;
+        if (!isOpen && isLocked) return false;
 
         if (!isOpen)
             OpenDoor();
@@ -55,11 +57,15 @@ public class Door : MonoBehaviour
         canOperate = false;
         await Task.Delay(freezeTimeMs);
         canOperate = true;
+       
+        return true;
     }
 
     [Button("Open Door")]
     public void OpenDoor()
     {
+        if (isLocked) return;
+
         isOpen = true;
         audioSource.PlaySound(openSound);
         doorLeft.DOLocalMoveZ(leftInitPos - openDistance, openSpeed).SetEase(openAnimEase);
