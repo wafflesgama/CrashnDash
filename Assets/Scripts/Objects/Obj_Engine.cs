@@ -59,7 +59,8 @@ public class Obj_Engine : MonoBehaviour
         Debug.Log("Boom!");
         visualEffect.SendEvent("OnExplosion");
         audioSource.PlaySound(explosionSound);
-        await Task.Delay(900);
+        await Task.Delay(1200);
+        PlayerUIManager.currentManager.DisplayMentorMessage(new string[] { "Hurray!", "You did it", "Now, quickly go to your ship and escape", "Or else..." });
         alarm.SetActive(true);
     }
 

@@ -68,7 +68,7 @@ public class PlayerUIManager : MonoBehaviour
         fadeAnimator.gameObject.SetActive(true);
         OnFadeScreen.TryInvoke(true);
 
-
+        currentManager = this;
 
         OnStartedDialogue.Subscribe(eventHandler, RegisterDialogue);
         inputManager.input_attack.Onpressed.Subscribe(eventHandler, TryNextCrewMessage);
@@ -139,17 +139,19 @@ public class PlayerUIManager : MonoBehaviour
 
 
     [Button("Playe Mentor Message")]
-    private async void DisplayMentorMessage()
+    public async void DisplayMentorMessage(string[] dial = null)
     {
-        await Task.Delay(2000);
-        var dialogue = new string[] { 
+        if (dial == null)
+            await Task.Delay(3100);
+
+        var dialogue = new string[] {
             "You have to destroy this ship before it's too late for us",
             "Your best option will be to try to destroy the engine",
             "Look for records on how to do this and good luck buddy, you're on your own" };
         mentorDialogueContainer.DOScale(1, dialogueAnimDuration).SetEase(dialogueInEase);
         await Task.Delay((int)dialogueAnimDuration * 1000 / 2);
         //isInCrewDialogue = true;
-        await mentorDialogueWriter.WriteAllMessages(dialogue, 2000);
+        await mentorDialogueWriter.WriteAllMessages(dial != null ? dial : dialogue, 2000);
         mentorDialogueContainer.DOScale(0, dialogueAnimDuration).SetEase(dialogueOutEase);
         //await Task.Delay(500);
 
