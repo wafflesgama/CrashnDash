@@ -43,6 +43,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: vending_machine (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1546574371324904788, guid: 71faefd37079c4c46ab299c784367ca0, type: 3}
+      propertyPath: m_TagString
+      value: Interactable
+      objectReference: {fileID: 0}
     - target: {fileID: 1546574371325008244, guid: 71faefd37079c4c46ab299c784367ca0, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -93,6 +97,53 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71faefd37079c4c46ab299c784367ca0, type: 3}
+--- !u!1 &6906747813419380297 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1546574371324904788, guid: 71faefd37079c4c46ab299c784367ca0, type: 3}
+  m_PrefabInstance: {fileID: 5381585743902288669}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &291768446495948938
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6906747813419380297}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.4000006, y: 4, z: 1.1500428}
+  m_Center: {x: -0.000007688999, y: 2, z: 0.026115572}
+--- !u!114 &6868165953193424856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6906747813419380297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e70d60c4520908f42865466062150791, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  renderers: []
+--- !u!54 &3780453317821067170
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6906747813419380297}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!4 &6906747813419741801 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1546574371325008244, guid: 71faefd37079c4c46ab299c784367ca0, type: 3}

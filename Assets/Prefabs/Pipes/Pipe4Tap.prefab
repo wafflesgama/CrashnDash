@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7880517415207043527}
+  - component: {fileID: 3815704214155988308}
   m_Layer: 0
   m_Name: Pipe4Tap
   m_TagString: Untagged
@@ -33,6 +34,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &3815704214155988308
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3908783422697075304}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
 --- !u!1001 &980283361378506007
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -47,18 +62,6 @@ PrefabInstance:
     - target: {fileID: 3975358350915539695, guid: 0caa1e04b0070374abe33e297f56881c, type: 3}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3975358350915539695, guid: 0caa1e04b0070374abe33e297f56881c, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 3975358350915539695, guid: 0caa1e04b0070374abe33e297f56881c, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 3975358350915539695, guid: 0caa1e04b0070374abe33e297f56881c, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 3975358350915539695, guid: 0caa1e04b0070374abe33e297f56881c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -102,11 +105,49 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0caa1e04b0070374abe33e297f56881c, type: 3}
+--- !u!1 &4092592742878194396 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3841964036302946251, guid: 0caa1e04b0070374abe33e297f56881c, type: 3}
+  m_PrefabInstance: {fileID: 980283361378506007}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &2272434645710800475
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4092592742878194396}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2111254290994576181, guid: 3a8c6c78c4b3321448634d67c9c4e1a0, type: 3}
 --- !u!4 &4229414268451489784 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3975358350915539695, guid: 0caa1e04b0070374abe33e297f56881c, type: 3}
   m_PrefabInstance: {fileID: 980283361378506007}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8375301215006726357 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8764469492906364354, guid: 0caa1e04b0070374abe33e297f56881c, type: 3}
+  m_PrefabInstance: {fileID: 980283361378506007}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1304815464648672990
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8375301215006726357}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 8734621459834956031, guid: 3a8c6c78c4b3321448634d67c9c4e1a0, type: 3}
 --- !u!1001 &6134936808341633956
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -117,18 +158,6 @@ PrefabInstance:
     - target: {fileID: 7842443888121571498, guid: d85f562de93bafa4b8dce65ea38c33fe, type: 3}
       propertyPath: m_RootOrder
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7842443888121571498, guid: d85f562de93bafa4b8dce65ea38c33fe, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1000.00024
-      objectReference: {fileID: 0}
-    - target: {fileID: 7842443888121571498, guid: d85f562de93bafa4b8dce65ea38c33fe, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1000.00024
-      objectReference: {fileID: 0}
-    - target: {fileID: 7842443888121571498, guid: d85f562de93bafa4b8dce65ea38c33fe, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1000.00024
       objectReference: {fileID: 0}
     - target: {fileID: 7842443888121571498, guid: d85f562de93bafa4b8dce65ea38c33fe, type: 3}
       propertyPath: m_LocalPosition.x

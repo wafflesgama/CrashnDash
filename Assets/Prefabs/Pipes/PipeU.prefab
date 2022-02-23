@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7736426247438468014}
   - component: {fileID: 3716692436453742201}
   - component: {fileID: 7500343054251863086}
+  - component: {fileID: 879026119331908491}
   m_Layer: 0
   m_Name: PipeU
   m_TagString: Untagged
@@ -83,3 +84,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &879026119331908491
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2537567467339236853}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -7791633866810041318, guid: 3a8c6c78c4b3321448634d67c9c4e1a0, type: 3}

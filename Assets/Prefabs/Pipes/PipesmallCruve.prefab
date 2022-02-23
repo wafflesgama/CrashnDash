@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2237400548779021477}
   - component: {fileID: 7868763939062577681}
   - component: {fileID: 1555605165911872244}
+  - component: {fileID: 2592814583053050642}
   m_Layer: 0
   m_Name: pipeCurved
   m_TagString: Untagged
@@ -61,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 1973251758998952556, guid: 3a8c6c78c4b3321448634d67c9c4e1a0, type: 3}
+  - {fileID: 2100000, guid: 6fa70225512aec04ea0a2aeb67643d59, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -83,6 +84,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &2592814583053050642
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 782840658904356980}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5697084562314303022, guid: 3a8c6c78c4b3321448634d67c9c4e1a0, type: 3}
 --- !u!1 &3141620162364855064
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,6 +109,7 @@ GameObject:
   - component: {fileID: 1570007903422725122}
   - component: {fileID: 6007488277505250594}
   - component: {fileID: 4529116427592957328}
+  - component: {fileID: 793314210217423196}
   m_Layer: 0
   m_Name: segment_6 (1)
   m_TagString: Untagged
@@ -144,7 +160,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 1973251758998952556, guid: 3a8c6c78c4b3321448634d67c9c4e1a0, type: 3}
+  - {fileID: 2100000, guid: 6fa70225512aec04ea0a2aeb67643d59, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -166,6 +182,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &793314210217423196
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3141620162364855064}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4441425930827235047, guid: 3a8c6c78c4b3321448634d67c9c4e1a0, type: 3}
 --- !u!1 &4639974707958317035
 GameObject:
   m_ObjectHideFlags: 0
@@ -175,6 +205,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5532154341730617274}
+  - component: {fileID: 984237673274721370}
   m_Layer: 0
   m_Name: PipesmallCruve
   m_TagString: Untagged
@@ -199,3 +230,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &984237673274721370
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4639974707958317035}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}

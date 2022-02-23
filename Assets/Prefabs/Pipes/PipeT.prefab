@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7842443888121571498}
   - component: {fileID: 4416312184758708183}
   - component: {fileID: 274685024163327845}
+  - component: {fileID: 2956253168345389711}
   m_Layer: 0
   m_Name: PipeT
   m_TagString: Untagged
@@ -25,9 +26,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9122993406709723148}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.0398715, y: -7.105427e-16, z: 3.1974422e-16}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1000.00024, y: 1000.00024, z: 1000.00024}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -61,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 1973251758998952556, guid: 3a8c6c78c4b3321448634d67c9c4e1a0, type: 3}
+  - {fileID: 2100000, guid: 6fa70225512aec04ea0a2aeb67643d59, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -83,3 +84,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &2956253168345389711
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9122993406709723148}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 1295951855365563351, guid: 3a8c6c78c4b3321448634d67c9c4e1a0, type: 3}

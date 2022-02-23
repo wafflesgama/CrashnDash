@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8775375207866433937}
+  - component: {fileID: 5487669491874824227}
   m_Layer: 0
   m_Name: SciFiWorkingSpace
   m_TagString: Untagged
@@ -33,6 +34,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &5487669491874824227
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7635674844035324265}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
 --- !u!1001 &2563136177447511652
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -107,6 +122,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 206baf2e20f35044f927ec9ea215c222, type: 3}
   m_PrefabInstance: {fileID: 2563136177447511652}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2563136177447608516 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 206baf2e20f35044f927ec9ea215c222, type: 3}
+  m_PrefabInstance: {fileID: 2563136177447511652}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1093690149750480615
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2563136177447608516}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 206baf2e20f35044f927ec9ea215c222, type: 3}
 --- !u!1001 &5422050533781754357
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -208,8 +242,65 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82c0cfe87d1cd90469f3c3e72a4d28d9, type: 3}
+--- !u!1 &360378022572235644 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5638137148310932105, guid: 82c0cfe87d1cd90469f3c3e72a4d28d9, type: 3}
+  m_PrefabInstance: {fileID: 5422050533781754357}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &3510354694750192714
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 360378022572235644}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -6087536746237685608, guid: 82c0cfe87d1cd90469f3c3e72a4d28d9, type: 3}
+--- !u!1 &5188032328379296932 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 82c0cfe87d1cd90469f3c3e72a4d28d9, type: 3}
+  m_PrefabInstance: {fileID: 5422050533781754357}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &751770139371419651
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5188032328379296932}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
 --- !u!4 &5527121012069119518 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 82c0cfe87d1cd90469f3c3e72a4d28d9, type: 3}
   m_PrefabInstance: {fileID: 5422050533781754357}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6016890800487285274 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1783060923181372399, guid: 82c0cfe87d1cd90469f3c3e72a4d28d9, type: 3}
+  m_PrefabInstance: {fileID: 5422050533781754357}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1062755369802191606
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6016890800487285274}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -87549458775813825, guid: 82c0cfe87d1cd90469f3c3e72a4d28d9, type: 3}

@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 5945315701695625380}
   - component: {fileID: 9140288094884677153}
   - component: {fileID: 2620857605101291007}
+  - component: {fileID: 7016325029752396395}
   m_Layer: 0
   m_Name: pCylinder23
   m_TagString: Untagged
@@ -145,7 +146,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -2554224091028463766, guid: 5f0b5f56b093cd04c831e581d2797ed8, type: 3}
+  - {fileID: 2100000, guid: 6fa70225512aec04ea0a2aeb67643d59, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -167,3 +168,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &7016325029752396395
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8556398574486771084}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 2239598380301062371, guid: 5f0b5f56b093cd04c831e581d2797ed8, type: 3}
