@@ -37,12 +37,15 @@ namespace NPC
 
 
         private Vector3 storedDestination;
+        private Vector3 initPos;
         private NPCArea_Door doorApproached;
 
         public UEvent OnArrivedDestination = new UEvent();
 
         bool isMoving;
         bool isFollowing;
+        bool goingToDestination;
+
 
         protected void Awake()
         {
@@ -54,6 +57,8 @@ namespace NPC
 
         void Start()
         {
+            initPos = agent.transform.position;
+            GoingTo(true);
         }
 
         private void OnDestroy()
@@ -83,21 +88,28 @@ namespace NPC
                 agent.destination = target.position;
             }
 
+
             if (isMoving && (HasArrivedDestination() || agent.isStopped))
             {
                 OnArrivedDestination.TryInvoke();
                 StopWalking();
+
+                goingToDestination = !goingToDestination;
+                GoingTo(goingToDestination);
             }
         }
 
-
+        private void GoingTo(bool dest)
+        {
+            goingToDestination = dest;
+            StartWalking(dest ? target.position : initPos);
+        }
 
 
         [Button("Go to Target")]
         public void FollowTarget()
         {
-            isFollowing = true;
-
+            //isFollowing = true;
             StartWalking(target.position);
         }
 

@@ -945,7 +945,7 @@ GameObject:
   m_Component:
   - component: {fileID: 462508011}
   - component: {fileID: 462508010}
-  - component: {fileID: 462508009}
+  - component: {fileID: 462508012}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -953,25 +953,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &462508009
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 462508008}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
-  m_InputActionsPerSecond: 10
-  m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
 --- !u!114 &462508010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1002,6 +983,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &462508012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 462508008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MoveRepeatDelay: 0.5
+  m_MoveRepeatRate: 0.1
+  m_XRTrackingOrigin: {fileID: 0}
+  m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_PointAction: {fileID: 1054132383583890850, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_MoveAction: {fileID: 3710738434707379630, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_SubmitAction: {fileID: 2064916234097673511, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_CancelAction: {fileID: -1967631576421560919, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_LeftClickAction: {fileID: 8056856818456041789, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_MiddleClickAction: {fileID: 3279352641294131588, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_RightClickAction: {fileID: 3837173908680883260, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_ScrollWheelAction: {fileID: 4502412055082496612, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_TrackedDevicePositionAction: {fileID: 4754684134866288074, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_TrackedDeviceOrientationAction: {fileID: 1025543830046995696, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_DeselectOnBackgroundClick: 1
+  m_PointerBehavior: 0
 --- !u!1 &467139728
 GameObject:
   m_ObjectHideFlags: 0
@@ -1617,7 +1626,7 @@ Animator:
   m_GameObject: {fileID: 680951367}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: abe8af6d30758b441b9d90a89ffe2190, type: 2}
+  m_Controller: {fileID: 9100000, guid: bfffc52b99757ec44b7de9c6de7be99b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1703,57 +1712,23 @@ MonoBehaviour:
       m_Calls: []
   m_text: '
 
-    <u>Doriano</u> is a 4-week demo made by Guilherme Gama for the Digital
-    Games'' curricular unit integrated in the Master of Multimedia, in FEUP.
+    <u>Crash & Dash</u> is a small game made by Guilherme Gama, Ines
+    Silva, Mykhailo Bevz and Bernardo Oliveira for the Digital Games'' curricular
+    unit integrated in the Master of Multimedia, in FEUP.
 
 
-    All
-    the gameplay and game behaviours were implemented from scratch by the developer,
-    featuring some built-in and external packages like: Cinemachine, New Input System,
-    TextMeshPro, Timeline, DOT Tween.
+    All the gameplay
+    and game scipts were implemented from scratch by the developers, featuring some
+    built-in and external packages like: Cinemachine, New Input System, TextMeshPro,
+    Timeline, DOT Tween.
 
-    The project also contains a custom C#
-    event handler implementation that provided a decoupled code structure connecting
-    in-world actions with their respective state  listeners.
-
-
-    For the visuals
-    the Universal Pipeline Shader Graph and VFX Graph packages were used.
+    The project also contains a custom C# event handler
+    implementation that provided a decoupled code structure connecting in-world actions
+    with their respective state  listeners.
 
 
-    <u>External
-    3D Models:</u>
-
-    Island and vegetation - Fantasy Adventure Environment (Asset)
-
-    Character
-    Base Mesh - Nabbakadnashr (Sketchfab)
-
-    Enemy Base Mesh - Burrow Cute Seires
-    (Asset)
-
-    Boat Base Mesh - Bjarne Stokhof (Sketchfab)
-
-
-    <u>External Animations</u>
-
-    Player
-    Animations - Mixamo & The Explorer Kit
-
-
-    <u>External Fonts:</u>
-
-    Main
-    Font -Candy Beans (Chequered Ink)
-
-
-    <u>External Songs:</u>
-
-    Credits Song
-    - Acoustic Breeze (Bensound.com)
-
-    Main Song - Brazillian Bossa Galore (Eddie
-    Hughes)
+    For the visuals the Universal Pipeline
+    Shader Graph and VFX Graph packages were used.
 
 
 '
@@ -4515,18 +4490,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PauseHandler, Assembly-CSharp
-        m_MethodName: ToMainMenu
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 2032676466}
         m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
         m_MethodName: GoToCredits
@@ -4797,6 +4760,16 @@ MonoBehaviour:
   fadeSpeed: 0.5
   audioSource: {fileID: 2032676465}
   clickSound: {fileID: 8300000, guid: 299f458430c91a74ebe960d6042d443f, type: 3}
+  fadeInSound:
+    volume: 0.86
+    clip: {fileID: 8300000, guid: a432b296ba654e747918e7a740cbb4dd, type: 3}
+  fadeOutSound:
+    volume: 0.84
+    clip: {fileID: 8300000, guid: 1b6475d66a2f57a46a588837b146e00a, type: 3}
+  mainGroup: {fileID: 467139730}
+  creditsGroup: {fileID: 879814868}
+  settingsGroup: {fileID: 936671198}
+  fadeAnimator: {fileID: 964663037}
 --- !u!1 &2049519877
 GameObject:
   m_ObjectHideFlags: 0

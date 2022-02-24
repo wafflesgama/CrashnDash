@@ -60,6 +60,7 @@ public class Obj_Engine : MonoBehaviour
         visualEffect.SendEvent("OnExplosion");
         audioSource.PlaySound(explosionSound);
         await Task.Delay(1200);
+        ending.isEding = true;
         PlayerUIManager.currentManager.DisplayMentorMessage(new string[] { "Hurray!", "You did it", "Now, quickly go to your ship and escape", "Or else..." });
         alarm.SetActive(true);
     }

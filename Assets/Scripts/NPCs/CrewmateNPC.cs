@@ -22,6 +22,8 @@ namespace NPC
         bool isObjSus, isPlayerinView;
         GameObject susPlayerObject;
 
+        Vector3 intiPos;
+
         void Awake()
         {
             base.Awake();
@@ -29,6 +31,7 @@ namespace NPC
             viewDetection.OnPlayerLeftArea.Subscribe(eventHandler, PlayerOutofView);
         }
 
+     
 
         protected new void FixedUpdate()
         {

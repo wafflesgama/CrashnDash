@@ -23,7 +23,6 @@ namespace NPC
 
         private void OnTriggerEnter(Collider other)
         {
-            Debug.Log("OnTrigger arealistener" + other.name);
 
             if (!other.gameObject.TryGetComponent<NPCArea>(out NPCArea area)) return;
 
@@ -31,10 +30,12 @@ namespace NPC
 
             if (Mathf.Abs(dot) > doorMinThreshold) return;
 
-            Debug.Log("Area type is " + area.GetType().ToString());
+            //Debug.Log("Area type is " + area.GetType().ToString());
 
             if (area.GetType() == typeof(NPCArea_Door))
             {
+                Debug.Log("OnTrigger door npc " + other.name);
+
                 onDoorApproach.TryInvoke((NPCArea_Door)area, doorMinThreshold > 0);
             }
 
