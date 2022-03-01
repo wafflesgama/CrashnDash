@@ -83,7 +83,7 @@ public class PlayerUIManager : MonoBehaviour
         PlayerCutsceneManager.OnEndingFadeIn.Subscribe(eventHandler, () => FadeScreen(fadeIn: true));
         PlayerCutsceneManager.OnCreditsStarted.Subscribe(eventHandler, ShowCredits);
 
-        DisplayMentorMessage();
+        //DisplayMentorMessage();
 
     }
 
